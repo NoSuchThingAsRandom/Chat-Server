@@ -169,6 +169,7 @@ public class DatabaseManagement {
             rs.updateString("USERNAME", username);
             rs.updateString("IV", data[0]);
             rs.updateString("MESSAGE_KEY", data[1]);
+            rs.updateString("PUBLIC MESSAGE_KEY", data[1]);
             rs.updateString("SALT", data[2]);
             rs.updateString("CHECK_KEY", data[3]);
             rs.updateBoolean("NEW_MESSAGES", false);

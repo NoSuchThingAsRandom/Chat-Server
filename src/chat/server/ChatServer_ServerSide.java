@@ -9,7 +9,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.security.SecureRandom;
 import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +24,7 @@ public class ChatServer_ServerSide {
     public static Initialisation_ServerSide init;
     public static void main(String[] args) {
         //Starts the database
-/*        Thread thread = new Thread(() -> {
+        Thread thread = new Thread(() -> {
             try {
                 ProcessBuilder pb = new ProcessBuilder("cmd", "/c", "startNetworkServer.bat");
                 File dir = new File(derbyServerLocation);
@@ -45,11 +44,15 @@ public class ChatServer_ServerSide {
                 Logger.getLogger(ChatServer_ServerSide.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-        thread.start();*/
-        //  Thread.sleep(1000);
+        thread.start();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
 
-        /*Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try {
                 ProcessBuilder pb = new ProcessBuilder("cmd", "/c", "stopNetworkServer.bat");
                 File dir = new File(derbyServerLocation);
@@ -59,7 +62,7 @@ public class ChatServer_ServerSide {
             } catch (IOException ex) {
                 Logger.getLogger(ChatServer_ServerSide.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }));*/
+        }));
 
 /*        SecureRandom rand = new SecureRandom();
         byte[] salt = new byte[16];
